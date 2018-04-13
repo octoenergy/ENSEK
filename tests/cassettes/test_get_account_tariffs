@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api.uat.usio.ignition.ensek.co.uk/Accounts/1507/Tariffs?includeHistory=True
+  response:
+    body: {string: '{"tariffName":"Standard Variable","startDate":"2017-01-01T00:00:00","endDate":null,"Electricity":{"unitRates":[{"name":"Any
+        Time","rate":10.20000,"registers":[1496]},{"name":"Day Consumption","rate":12.20000,"registers":[]},{"name":"Night
+        Consumption","rate":7.20000,"registers":[]}],"standingChargeRates":[{"name":"Standing
+        Charge","rate":20.20000,"registers":null}]},"Gas":{"unitRates":[{"name":"Gas
+        Consumption","rate":2.10000,"registers":[1497]}],"standingChargeRates":[{"name":"Standing
+        Charge","rate":20.20000,"registers":null}]},"discounts":[],"tariffType":"Variable","exitFees":null}'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['591']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 17 Apr 2018 10:44:38 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1

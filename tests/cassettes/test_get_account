@@ -1,0 +1,37 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api.uat.usio.ignition.ensek.co.uk/accounts/1507
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEAK1UTW/iMBD9K5G1xxCFNCHAaUkDq0oFoZaedvdg4glYODayne4i1P++dkgCC7QS
+        VY/z4Tcz741njyhBw27kxy5SVMOIEAlKoeEelVvJ0RB1g7swQi7ChFBNBcfsgedCFtgaaMhLxszT
+        cpmUlBHKVzNcwKwsliCb4PJKBPmR86ydOS6ZckavYAoQ2AInwPViLaQoV+scS2gw9BUfEeWSQdo8
+        exQZZlTv2vB7AXZmZ6LkR2srlM4EMVXQ7EfsROPE9kbVluGdneCyd8f9xZvUNwMgaYHl7l5wjTNt
+        mawoDoO+iYFUlrXa5/f8yMxGNbOwU2kq5VQqXdd5UVQYF8OtZwFKO1aN7IBuhPq5R9/0bmuj90/T
+        uZAas2eQrzQD5T1wDTLHGXijrBrTq9tSXq10baegMWWu8wGEqXq5EhbikXLoXpX0JCFo+D3x3bXq
+        ij/8BjUsd0G1svXgzda6yDC/AW2WbcyxWQ6TmGOmwC4QlWSOpd5N30v5UOT/NP4k5ePCcHwT4bj5
+        jkgb5b8DV7DxMuGVmyMN/ZaGCv9LSbio+unZ52vB4abZeXsqqn3rxf2B8VY4hyuyOLRReY50DFo6
+        TlK/djOO/bz9Pg9OpWO/rdP+VKoSKTZ2kArMHAiNV6rZb6rmZ+eiyYK/hgpzbZ8gBwk8s+CTXj9K
+        k0nYmcR+0gl7Sdrpp920EwyiMA7iNByEpqd/klZ8uNQFAAA=
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['548']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 17 Apr 2018 10:48:20 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1

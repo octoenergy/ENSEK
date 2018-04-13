@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api.uat.usio.ignition.ensek.co.uk/Accounts/1507/MeterPoints
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEANWYUW/aMBDHv4qV524KhULhjSYpyhYIStI+rEKRSy6dtyRmSag0Vf3usxMaaHeB
+        tTOdhnggtnP/n+3z+Y6bB40WBV8yWjKe+SXNS5OWoI20U70z+KB3xDfQ9VH11U52B1tZVA/N1kly
+        ohXr1Sr5edhCPe7Fy6zwU/GiNoppUkDzbPA0XWdsKfSyu21npI06Z8PBiZZCCfmcs6ycrdNbyLXR
+        cNjRq0/nTH82IPi5kkyWtmkstNHNQ/3TlvZ6/f6mx4ec0eTJoDad6IPPek/Xu+JVlhUlTRKI9k4x
+        h5Tfw7MJ5nDHika2mkFv2N+2exBDDtlSGtU7woZYRxbHYgFWPIOsfLJDyzJnt+sSpKGFGLaSjHK+
+        WvUwF/A8MqFY5mwld0n0Xs08yw882wgsU4wCuhz/0EZiRvpH/XHx0uZvLQ/bxxlNJaA51nbGXNNk
+        LVvHhnElzccxLEt2D5c5T/cuUzMy4LtL1Rh+Pgsh+niCsBj/gsVAWawMcrGdT0epXBcYm4WD1YKv
+        49gVJBtFDGySA2TEBJpgQJfyWKmDqsVqNRTGn2MU4YVCBCGBSTvOJbGzSAYUnqN+o45Bau2IteCg
+        3numlAL31SnQYi0ClYgtxEhEWD/ycuzqbQRxLBEMp/Q7jLNoyiNAHdbgecwgiVTSCVkidYkQJrUy
+        yueiznvkeCNVUZoA9Z/z6jZQtTRBiwMFBvEgEQaidwgqUq2Rw3Bcxwz9q/ncsS0P3SEnsNXhuElE
+        fJnIMMCP9i5OiN+XzoXvHIeImPQPoFDXOSbU8jBUy/E6ItWUr1Csec5jlkB7bFR4xJ609sRF30e3
+        S+8Ou+o4pAgqvudczW3HPWLka6RRrqqUCNtTLce+bsm21MBV+qTJvBYV5H9aTp23l1MttdSkvZYa
+        4LXURBjrdaU55bXUAK+lJq8spequlkJqMva39VPn9O0F1IQWoZ2uqsUJq9wj3JuWzhSmxrQQaelG
+        m5A68TmQp0rcmnIKy680Y0WKpmWeYswN3Fb0AFxbvnjVJ57CnPoZW2um2HCJsxb6UIbCLTG47vC0
+        e94/HRyDT0iL6ASlTJ3iVsoZD904NNkdK9Eo2lOMNuOEuLGoEGvFNiz39pu0zLM9Ad69+GQZge3O
+        Qs/yXee6/oNDIWsDQfbW1wL3Ly6jN9O9vICwGtP8gsEE3njmKywzhQpaJIyn76AuVcTlu/gFnYRj
+        180UAAA=
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['917']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 17 Apr 2018 10:48:54 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1
