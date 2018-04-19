@@ -4,6 +4,7 @@ from string import Template
 
 import stringcase
 import requests
+from requests.exceptions import RequestException
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,10 @@ class Ensek:
 
     def _get(self, path, params):
         url = f'{self._api_url}/{path.lstrip("/")}'
-        response = requests.get(url, headers=self._headers, params=params)
+        try:
+            response = requests.get(url, headers=self._headers, params=params)
+        except RequestException as exc:
+            raise EnsekError(exc, response=None) from exc
         if not response.ok:
             self._handle_bad_response(response)
         return response.json()
