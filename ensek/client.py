@@ -20,6 +20,7 @@ class Ensek:
         'get_account': Template('/accounts/$account_id'),
         'get_completed_signups': Template('/SignUps/Completed'),
         'get_meter_points': Template('/Accounts/$account_id/MeterPoints'),
+        'get_region_id_for_postcode': Template('/Regions/$postcode'),
         'get_account_tariffs': Template('/Accounts/$account_id/Tariffs'),
         'get_account_for_meter_point': Template(
             '/Accounts/Lookups/MeterPoints/$mpan_core_id'

@@ -136,3 +136,10 @@ def test_get_account_for_meter_point(client):
 
     assert isinstance(result, dict)
     assert result == {'accountId': ACCOUNT_ID}
+
+
+@my_vcr.use_cassette()
+def test_get_region_id_for_postcode(client):
+    result = client.get_region_id_for_postcode(postcode='se14yu')
+
+    assert result == 12
