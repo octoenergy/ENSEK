@@ -6,7 +6,7 @@ Release History
 0.2.1 (unreleased)
 ++++++++++++++++++
 
-- Nothing changed yet.
+- Bugfix for ``EnsekError`` not being raised when a connection error occurs.
 
 
 0.2.0 (2018-04-19)
