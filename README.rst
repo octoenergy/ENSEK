@@ -52,6 +52,10 @@ Available methods
 
 ``client.get_account_for_meter_point(mpan_core_id='9910000001507')``
 
+**Get the [PES Area](http://www.energybrokers.co.uk/electricity/PES-Distributor-areas.htm) for a postcode**
+
+``client.get_region_id_for_postcode(postcode='se14yu')``
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.
