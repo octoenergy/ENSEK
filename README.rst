@@ -83,5 +83,5 @@ Running the tests
    :target: https://pypi.python.org/pypi/ensek
 .. |Python Versions| image:: https://img.shields.io/pypi/pyversions/ensek.svg
    :target: https://pypi.python.org/pypi/ensek
-.. |Build Status| image:: https://travis-ci.org/Usio-Energy/ensek.png?branch=master
+.. |Build Status| image:: https://travis-ci.org/Usio-Energy/ENSEK.png?branch=master
    :target: https://travis-ci.org/Usio-Energy/ensek
