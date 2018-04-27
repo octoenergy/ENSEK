@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-0.3.0 (unreleased)
+0.3.0 (2018-04-27)
 ++++++++++++++++++
 
 - Adds ``get_gas_utility`` method.

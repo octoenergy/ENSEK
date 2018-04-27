@@ -23,7 +23,7 @@ with io.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name=NAME,
-    version='0.2.2.dev0',
+    version='0.3.0',
     description=DESCRIPTION,
     long_description=long_description,
     author=AUTHOR,
