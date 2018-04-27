@@ -52,9 +52,13 @@ Available methods
 
 ``client.get_account_for_meter_point(mpan_core_id='9910000001507')``
 
-**Get the [PES Area](http://www.energybrokers.co.uk/electricity/PES-Distributor-areas.htm) for a postcode**
+**Get the PES Area for a postcode** (`<http://www.energybrokers.co.uk/electricity/PES-Distributor-areas.htm>`_)
 
 ``client.get_region_id_for_postcode(postcode='se14yu')``
+
+**Get gas utility information for a MPRN (meter point reference number)**
+
+``client.get_gas_utility(mprn='3226987202')``
 
 Note: For each client method:
 
