@@ -56,6 +56,10 @@ Available methods
 
 ``client.get_region_id_for_postcode(postcode='se14yu')``
 
+**Get gas utility information for a MPRN (meter point reference number)**
+
+``client.get_gas_utility(mprn='3226987202')``
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.

@@ -143,3 +143,29 @@ def test_get_region_id_for_postcode(client):
     result = client.get_region_id_for_postcode(postcode='se14yu')
 
     assert result == 12
+
+
+@my_vcr.use_cassette()
+def test_get_gas_utility(client):
+    result = client.get_gas_utility(mprn='3226987202')
+
+    assert result == {
+        'ldz': 'NT',
+        'gasTransporter': 'National Grid Gas',
+        'igtIndicator': False, 'gasLargeSiteIndicator': False,
+        'fuelType': 'Gas', 'meterDetails': [{'meterSerialNumber': '00659516'}],
+        'meterDesignation': None, 'meterStatus': None, 'aq': None,
+        'shipper': None, 'supplier': None, 'MeterPoint': '3226987202',
+        'attributes': {'igtIndicator': False, 'isPrepay': False},
+        'matchType': 'Confirmed',
+        'address': {
+            'uprn': None, 'additionalInformation': None,
+            'subBuildingNameNumber': None, 'buildingNameNumber': '55',
+            'dependentThoroughfare': None, 'thoroughfare': None,
+            'doubleDependentLocality': None,
+            'dependentLocality': 'Arbour Square', 'locality': 'London',
+            'county': None, 'postcode': 'E1 0PS',
+            'displayName': '55 ,\nArbour Square,\nLondon,\nE1 0PS'
+        },
+        'includeInRegistration': None, 'lookupType': 'ByMeterpoint'
+    }

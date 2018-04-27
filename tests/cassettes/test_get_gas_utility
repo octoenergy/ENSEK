@@ -1,0 +1,27 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api.uat.usio.ignition.ensek.co.uk/UtilitiesLookups/Gas/3226987202
+  response:
+    body: {string: '{"ldz":"NT","gasTransporter":"National Grid Gas","igtIndicator":false,"gasLargeSiteIndicator":false,"fuelType":"Gas","meterDetails":[{"meterSerialNumber":"00659516"}],"meterDesignation":null,"meterStatus":null,"aq":null,"shipper":null,"supplier":null,"MeterPoint":"3226987202","attributes":{"igtIndicator":false,"isPrepay":false},"matchType":"Confirmed","address":{"uprn":null,"additionalInformation":null,"subBuildingNameNumber":null,"buildingNameNumber":"55","dependentThoroughfare":null,"thoroughfare":null,"doubleDependentLocality":null,"dependentLocality":"Arbour
+        Square","locality":"London","county":null,"postcode":"E1 0PS","displayName":"55
+        ,\nArbour Square,\nLondon,\nE1 0PS"},"includeInRegistration":null,"lookupType":"ByMeterpoint"}'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['743']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Fri, 27 Apr 2018 13:13:11 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1
