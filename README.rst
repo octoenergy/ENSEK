@@ -87,9 +87,10 @@ Releasing to PyPI
 -----------------
 
 .. code:: bash
+
     pip install zest.releaser
     fullrelease
-
+    
 .. |PyPI| image:: https://img.shields.io/pypi/v/ensek.svg
    :target: https://pypi.python.org/pypi/ensek
 .. |Python Versions| image:: https://img.shields.io/pypi/pyversions/ensek.svg
