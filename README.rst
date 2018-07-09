@@ -48,9 +48,9 @@ Available methods
 
 ``client.get_completed_signups()``
 
-**Get the account id currently associated with an MPAN core id**
+**Get the account id currently associated with an MPAN core id or MPRN**
 
-``client.get_account_for_meter_point(mpan_core_id='9910000001507')``
+``client.get_account_for_meter_point(meter_point_id='9910000001507')``
 
 **Get the PES Area for a postcode** (`<http://www.energybrokers.co.uk/electricity/PES-Distributor-areas.htm>`_)
 
