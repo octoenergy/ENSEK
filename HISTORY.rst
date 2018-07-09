@@ -3,10 +3,10 @@
 Release History
 ---------------
 
-0.3.1 (unreleased)
+1.0.0 (unreleased)
 ++++++++++++++++++
 
-- Nothing changed yet.
+- Renames parameter of ``get_account_for_meter_point`` to ``meter_point_id``.
 
 
 0.3.0 (2018-04-27)
