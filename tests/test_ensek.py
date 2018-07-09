@@ -132,7 +132,7 @@ def test_raises_valuerror_if_400_status_code(client):
 
 @my_vcr.use_cassette()
 def test_get_account_for_meter_point(client):
-    result = client.get_account_for_meter_point(mpan_core_id=MPAN_CORE_ID)
+    result = client.get_account_for_meter_point(meter_point_id=MPAN_CORE_ID)
 
     assert isinstance(result, dict)
     assert result == {'accountId': ACCOUNT_ID}

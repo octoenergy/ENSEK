@@ -25,7 +25,7 @@ class Ensek:
         'get_gas_utility': Template('/UtilitiesLookups/Gas/$mprn'),
         'get_account_tariffs': Template('/Accounts/$account_id/Tariffs'),
         'get_account_for_meter_point': Template(
-            '/Accounts/Lookups/MeterPoints/$mpan_core_id'
+            '/Accounts/Lookups/MeterPoints/$meter_point_id'
         ),
     }
 
