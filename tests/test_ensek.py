@@ -173,7 +173,7 @@ def test_get_gas_utility(client):
 
 @my_vcr.use_cassette()
 def test_get_electricity_utility(client):
-    result = client.get_electricity_utility(mpan='1900025225872')
+    result = client.get_electricity_utility(mpan_core_id='1900025225872')
 
     assert result == {
         'MeterPoint': '1900025225872',
@@ -183,11 +183,13 @@ def test_get_electricity_utility(client):
             'county': 'Kent',
             'dependentLocality': 'Weavering',
             'dependentThoroughfare': None,
-            'displayName': '9 Speedwell Close,\n'
-                         'Weavering,\n'
-                         'Maidstone,\n'
-                         'Kent,\n'
-                         'ME14 5SX',
+            'displayName': (
+                '9 Speedwell Close,\n'
+                'Weavering,\n'
+                'Maidstone,\n'
+                'Kent,\n'
+                'ME14 5SX'
+            ),
             'doubleDependentLocality': None,
             'locality': 'Maidstone',
             'postcode': 'ME14 5SX',
