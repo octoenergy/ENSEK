@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://api.uat.usio.ignition.ensek.co.uk/UtilitiesLookups/Elec/1900025225872
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEAIVV227bMAz9lcLPDWAFza1vbZIW2XJDnXYDtmFQLMYRJkuGLi2CIv8+SbZyq+sC
+        frAPqUOK5KHfo40BttoVEN1GYwapljSlehddR4xymAqlHnCqhRwyrJT1iWNUbxth7TjaMeq34psW
+        6q7i+NY/9f4TTmiK7Zc9dGddMgnAR4DZXarpq6XaYKbgOgIOMqMKayp4orE2LotxCQKJ6hyOqfRa
+        qN1C/dNUUiMlcJ2YomAUXPTHxfzRGiRYFi09TyNDJinxx3dLQbm2fn+/fYQrCjQYWArUQoNTikKK
+        DWVwLOoF1lhMpTEnWJIEtGaQ28sMBd/QzJS5R7fcMPalWxmidM1Bg1zRHNQb1ek2pNX3va4zNtYn
+        B6yMLCNWTA81cOMd64I+AbNHyGEy6nzc5xJra+BPtp85DIVxLUL17ku8c/lU8z98+iTyRC0lVL6N
+        4WceK9me54FtUYCsJn04S6aXcGMhCNZ4KJhTpid4Hs2SS/hLgrvMqivDHxiOeDOF0wVdm/J8Mh7f
+        hyuMQGPKbId/vZfAhNuxY+xCRN1W3G+h3iknLR0pz06UuHhZjAO1LquYHEYwAUkxm5t87X1Rdxmj
+        Tq+LBtH+j5/2o/KD6NrobKYKzFcSExczLJLV6eY5oHPBwQktV2JWUOLSmE2fK6TxWiRNbZ6vNIUH
+        hrOgr3P0VHl0S6qSheD1+OkZZcuhXkAqL3ab2njlq+SHL6wkNIjjuN1ptzv9XtsarSZ8C8GGeP90
+        2VI36AXeVcDeFg3b2Q76cPtD5n7rYkIkKE9mCnlYOhamrveYTfhGyPx8I5n1vaHMNWCOcwitLI3r
+        Gks0cCWFAjhxKt0KKUy23WB5qIU+w6KkACBvwNjVkAnlekiEWTMYBY6pSDFz/7fQmY+G6AfgVztr
+        PHM/riM8w5QoXU5G6raKA7+7jWB3t1A6FcSlMBujm6tO8rPUTcHwzt3I3eXqIrvr3/wQyr4f+O27
+        o3VQ4No7waTMEJj4vRb+U+EaTIh/pqjadL/zk1D4Sdj/BwDfTZbiBwAA
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['783']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Wed, 11 Jul 2018 13:58:20 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1

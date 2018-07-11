@@ -169,3 +169,83 @@ def test_get_gas_utility(client):
         },
         'includeInRegistration': None, 'lookupType': 'ByMeterpoint'
     }
+
+
+@my_vcr.use_cassette()
+def test_get_electricity_utility(client):
+    result = client.get_electricity_utility(mpan_core_id='1900025225872')
+
+    assert result == {
+        'MeterPoint': '1900025225872',
+        'address': {
+            'additionalInformation': None,
+            'buildingNameNumber': '9',
+            'county': 'Kent',
+            'dependentLocality': 'Weavering',
+            'dependentThoroughfare': None,
+            'displayName': (
+                '9 Speedwell Close,\n'
+                'Weavering,\n'
+                'Maidstone,\n'
+                'Kent,\n'
+                'ME14 5SX'
+            ),
+            'doubleDependentLocality': None,
+            'locality': 'Maidstone',
+            'postcode': 'ME14 5SX',
+            'subBuildingNameNumber': None,
+            'thoroughfare': 'Speedwell Close',
+            'uprn': None
+        },
+        'attributes': {'greenDealActive': False, 'isPrepay': False},
+        'currentSupplier': 'GONG',
+        'dataAggregator': 'UDMS',
+        'dataAggregatorDate': '2018-04-16T00:00:00',
+        'dataCollector': 'UDMS',
+        'dataCollectorDate': '2018-04-16T00:00:00',
+        'dccServiceFlag': None,
+        'dccServiceFlagDate': None,
+        'distributor': 'SEEB',
+        'energisationStatus': 'Energised',
+        'energisationStatusDate': '2017-12-18T00:00:00',
+        'fuelType': 'Electricity',
+        'greenDealActive': False,
+        'greenDealStatus': 'None',
+        'gridSupplyPoint': '_J',
+        'gridSupplyPointDate': '1997-11-19T00:00:00',
+        'ihdInstallStatus': None,
+        'ihdInstallStatusDate': None,
+        'includeInRegistration': None,
+        'lineLossFactorClass': '001',
+        'lineLossFactorClassDate': '2018-04-16T00:00:00',
+        'lineLossFactorClassIndicator': 'A',
+        'lookupType': 'ByMeterpoint',
+        'matchType': 'Confirmed',
+        'measurementClass': 'F',
+        'measurementClassDate': '2018-04-16T00:00:00',
+        'meterDetails': [{
+            'installingSupplier': 'OVOE',
+            'meterInstallationDate': '2016-08-17T00:00:00',
+            'meterSerialNumber': '16P0157619',
+            'metertype': 'S1'
+        }],
+        'meterOperator': 'CMSL',
+        'meterOperatorDate': '2018-04-16T00:00:00',
+        'meterTimeswitchClass': '801',
+        'meterTimeswitchClassDate': '2017-12-18T00:00:00',
+        'meterTimeswitchClassIsPrePayment': False,
+        'meterTimeswitchClassMeterType': 'UN',
+        'meterTimeswitchClassPaymentType': 'CR',
+        'meterTimeswitchClassRelated': False,
+        'meterTimeswitchClassTimePatternRegimeCount': 1,
+        'mpanTradingStatus': 'T',
+        'profileClass': '00',
+        'profileClassDate': '2018-04-16T00:00:00',
+        'registrationDate': '2017-12-18T00:00:00',
+        'smetsVersion': 'SMETS1',
+        'smsoDate': '2016-08-17T00:00:00',
+        'smsoMpid': 'SMLU',
+        'standardSettlementConfiguration': None,
+        'standardSettlementConfigurationDate': None,
+        'statusDate': '1997-11-21T00:00:00'
+    }

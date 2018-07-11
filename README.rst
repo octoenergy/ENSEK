@@ -60,6 +60,10 @@ Available methods
 
 ``client.get_gas_utility(mprn='3226987202')``
 
+**Get electricity utility information for a MPAN CORE ID (meter point administration number)**
+
+``client.get_electricity_utility(mpan_core_id='3226987202')``
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.
