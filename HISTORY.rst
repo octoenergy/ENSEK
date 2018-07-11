@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.1.0 (unreleased)
+1.1.0 (2018-07-11)
 ++++++++++++++++++
 
 - Adds ``get_electricity_utility`` method.
