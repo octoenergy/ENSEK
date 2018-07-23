@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/Accounts/1507/MeterPoints
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEANWYbW+bMBDHv4rF624iTZo0eZcCjdhIiID2xaYKuXB03gBnPFSqqn332ZCStDvS
+        PTibFuVFsM39f7bP57t8fNRoWfKI0Yrx3K9oUZm0Am2mneqDyRt9IL6Brs+ar3ayP9jK43ZoXqfp
+        iVbWm0368LqFdtyLl1npZ+JFbZbQtITu2eBZVucsEnr53a4z1maDs+nkRMuggmLNWV6t6uwWCm02
+        nQ705jM4058NCB42ksnSto2lNvv42P60pb3ReLzt8aFgNH0yqC0X+uS9PtL1oXiV5WVF0xTig1Ms
+        IOP38GyCBdyxspNtZjCajnftHiRQQB5Jo/pA2BDryJJELMCG55BXT3ZoVRXstq5AGroRwzaSUc5X
+        ax7WAp7HJpRRwTZyl0Tv1cqz/MCzjcAyxSig0fyrNhMz0t/qYj94XURgx+0CSZVvNy91fmh53D2u
+        aCahzbm2N+aaprVsnRvGlZRMEogqdg+XBc8OLl03MuD7y9cZfj4zIfrtBGEx/gWLgbJYORRii5+O
+        V1WXGJuFg7WCv8axL0i2ihjYogDIiQk0xYAu5VFTB9WKtWoojL/GKMILhQhCApN2nEti57EMMrxA
+        /UYdg9TaE+vBQb33TCkF7qtLoGUtgpeIN8RIRag/8nLs620FcSwRIJf0C8zzeMljQB3W4EXCII1V
+        0glZInWJECatMsrnos575HgjVVGaAPWf8+aGULU0QY8DBQbxIBUG4r8QVKRaJ4fhuI4Z+lfrtWNb
+        HrpDTmCrw3HTmPgyuWGAH+19nBC/L50L3zkOETHpT0ChrnNMqOh1qJ7jdUSqJd+gWOuCJyyF/tio
+        8Ig9aR2Ii76Pbpc+nA7VcUgRVPzAuVrbjnvEyNdJo1xNeRH2p1qOfd2TbamBa/RJl3ndNJD/aYl1
+        3l9i9dRXi/76aoLXVwthbDSU5pTXVxO8vlr8YnnVdvUUV4u5v6upBqdqi6oFLUM72zQLFjb5SHgw
+        VV0pTJdpKVLVrTYhbTL0Su4qcVvKJUSfaM7KDE3VPMWYW7id6CtwfTnk1Zh4CvPsZ2y92WPHJc5f
+        6EMVClfF4IbT0+H5+HRyDD4hLSIWVDKdSnopVzx0k9Bkd6xCI+tIMdqKE+ImompsFfuw3NvP0jLP
+        DwR99+KdZQS2uwo9y3ed6/aPEIWsHQQ5WHML3D+4oH6b7uWlhNWd5gcMJvDmK19h6SlU0MJhvvwL
+        6lJFXMg33wHbKW6v9RQAAA==
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['928']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+- request:
+    body: '[{"meterPointId": 1597, "dateTime": "2018-07-24T13:31:39.400855+00:00",
+      "readings": [{"registerId": 1496, "value": 2.0}]}]'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['122']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.19.1]
+    method: POST
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/Accounts/1507/Readings
+  response:
+    body: {string: '[]'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['2']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/MeterPoints/1597/Readings
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEAL3X30vDMBAH8P8lz1u4Sy5NmzeZPvggiqtPw4exllHwF7MTRPzfvU4ZCF5YbAmU
+        PZRrLh+y7b5dfaiuUQERrJ2pXbtuuqdt/f7SqqDONv1+/aBm6rHt293Nc/fUX3ItzFSz7tu6exyK
+        DKCfA/JVA4TDxU9seKW+bc75Q6z5afaqwuq4CV8M97fdKzcceiFVfOdt/bDndRAANHze/2zo9vv5
+        5fN+txm6nC/U5+y4Uln8l1POwc+NjXK+a6hGCLbgdrqgv0VofEQE2oicxd2yvr66uP2F8plQZAN6
+        7Y2EKqdElflQ1uuKvKSqplRVWVRmqMFKE0oqCxOqKhinogQVIX8BRRVOqcJcKgxkNDorqcyUKpNL
+        RcEV2jnxrOyUqn+PqVSV5xqNpYSi2KSKjKk/UZQPZYrIX6B1U6pcLlUZjNHGSahoqEhFjcwVKShX
+        8lFJqFiuMKmokbniZBQeflQg5QobyxXJqJG54mSU4xDIm5NnVSxXJKtG5ooUFZHmSC6oKJYrElWc
+        7HOpeAJ7DdIAplisSEblihWMcpZjhXhUsViRrMoVK9yQlzSSeFaxWJGsyhMr+A0Eg3UcliRULFac
+        hrr/ApA9GLXUDwAA
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['468']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1
