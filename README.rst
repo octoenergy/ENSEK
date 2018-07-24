@@ -64,6 +64,22 @@ Available methods
 
 ``client.get_electricity_utility(mpan_core_id='3226987202')``
 
+**Create a meter reading**
+
+```python
+client.create_meter_reading(
+    account_id=1507,
+    meter_point_id=1597,
+    register_id=1496,
+    value=2.0,
+    timestamp=datetime(2018, 7, 24, 13, 49, 34, 661562, tzinfo=timezone.utc)
+)
+```
+
+**Get readings for a meter point**
+
+``client.get_meter_point_readings(meter_point_id=1597)``
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.
@@ -94,7 +110,7 @@ Releasing to PyPI
 
     pip install zest.releaser
     fullrelease
-    
+
 .. |PyPI| image:: https://img.shields.io/pypi/v/ensek.svg
    :target: https://pypi.python.org/pypi/ensek
 .. |Python Versions| image:: https://img.shields.io/pypi/pyversions/ensek.svg
