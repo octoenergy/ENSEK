@@ -1,5 +1,7 @@
 import os
+from datetime import datetime, timezone
 from pathlib import Path
+import itertools
 
 import pytest
 import vcr
@@ -55,6 +57,41 @@ def test_get_meter_points(client):
         'supplyEndDate', 'isSmart', 'isSmartCommunicating', 'id',
         'meterPointNumber', 'meterPointType', 'meters', 'attributes'
     }
+
+
+@my_vcr.use_cassette()
+def test_create_and_get_meter_reading(client, mocker):
+    meter_points = client.get_meter_points(account_id=ACCOUNT_ID)
+    meter_point_id = meter_points[0]['id']
+    meter_point = meter_points[0]
+    registers = itertools.chain.from_iterable(
+        [m['registers'] for m in meter_point['meters']]
+    )
+
+    register_id = tuple(registers)[0]['id']
+
+    # Create reading
+    result = client.create_meter_reading(
+        account_id=ACCOUNT_ID,
+        meter_point_id=meter_point_id,
+        register_id=register_id,
+        value=2.0,
+        timestamp=datetime.now(timezone.utc),
+    )
+
+    assert result == []
+
+    # Check reading added correctly
+    result = client.get_meter_point_readings(meter_point_id=meter_point_id)
+    assert len(result)
+    added_reading = result[-1]
+    assert added_reading['readings'] == [
+        {
+            'id': mocker.ANY,
+            'registerId': register_id,
+            'value': 2.0,
+        }
+    ]
 
 
 @my_vcr.use_cassette()
@@ -152,22 +189,39 @@ def test_get_gas_utility(client):
     assert result == {
         'ldz': 'NT',
         'gasTransporter': 'National Grid Gas',
-        'igtIndicator': False, 'gasLargeSiteIndicator': False,
-        'fuelType': 'Gas', 'meterDetails': [{'meterSerialNumber': '00659516'}],
-        'meterDesignation': None, 'meterStatus': None, 'aq': None,
-        'shipper': None, 'supplier': None, 'MeterPoint': '3226987202',
-        'attributes': {'igtIndicator': False, 'isPrepay': False},
+        'igtIndicator': False,
+        'gasLargeSiteIndicator': False,
+        'fuelType': 'Gas',
+        'meterDetails': [{
+            'meterSerialNumber': '00659516'
+        }],
+        'meterDesignation': None,
+        'meterStatus': None,
+        'aq': None,
+        'shipper': None,
+        'supplier': None,
+        'MeterPoint': '3226987202',
+        'attributes': {
+            'igtIndicator': False,
+            'isPrepay': False
+        },
         'matchType': 'Confirmed',
         'address': {
-            'uprn': None, 'additionalInformation': None,
-            'subBuildingNameNumber': None, 'buildingNameNumber': '55',
-            'dependentThoroughfare': None, 'thoroughfare': None,
+            'uprn': None,
+            'additionalInformation': None,
+            'subBuildingNameNumber': None,
+            'buildingNameNumber': '55',
+            'dependentThoroughfare': None,
+            'thoroughfare': None,
             'doubleDependentLocality': None,
-            'dependentLocality': 'Arbour Square', 'locality': 'London',
-            'county': None, 'postcode': 'E1 0PS',
+            'dependentLocality': 'Arbour Square',
+            'locality': 'London',
+            'county': None,
+            'postcode': 'E1 0PS',
             'displayName': '55 ,\nArbour Square,\nLondon,\nE1 0PS'
         },
-        'includeInRegistration': None, 'lookupType': 'ByMeterpoint'
+        'includeInRegistration': None,
+        'lookupType': 'ByMeterpoint'
     }
 
 
@@ -197,7 +251,10 @@ def test_get_electricity_utility(client):
             'thoroughfare': 'Speedwell Close',
             'uprn': None
         },
-        'attributes': {'greenDealActive': False, 'isPrepay': False},
+        'attributes': {
+            'greenDealActive': False,
+            'isPrepay': False
+        },
         'currentSupplier': 'GONG',
         'dataAggregator': 'UDMS',
         'dataAggregatorDate': '2018-04-16T00:00:00',
