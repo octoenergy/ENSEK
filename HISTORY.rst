@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.2.0 (unreleased)
+1.2.0 (2018-07-24)
 ++++++++++++++++++
 
 - Adds ``get_meter_point_readings`` method.
