@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.3.0 (unreleased)
+1.3.0 (2018-07-30)
 ++++++++++++++++++
 
 - Adds optional ``source`` arg to ``create_meter_reading`` method.
