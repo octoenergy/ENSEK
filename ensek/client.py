@@ -44,7 +44,8 @@ class Ensek:
         self._headers = {'Authorization': f'Bearer {self._api_key}'}
 
     def create_meter_reading(
-        self, *, account_id, meter_point_id, register_id, value, timestamp
+        self, *, account_id, meter_point_id, register_id, value, timestamp,
+        source=None,
     ):
         path = self.ENDPOINTS['create_meter_reading'].substitute(
             account_id=account_id
@@ -53,6 +54,7 @@ class Ensek:
             {
                 'meterPointId': int(meter_point_id),
                 'dateTime': timestamp.isoformat(),
+                'meterReadingSource': source,
                 'readings': [{
                     'registerId': int(register_id),
                     'value': float(value),
