@@ -77,6 +77,7 @@ def test_create_and_get_meter_reading(client, mocker):
         register_id=register_id,
         value=2.0,
         timestamp=datetime.now(timezone.utc),
+        source='SMART',
     )
 
     assert result == []
@@ -85,6 +86,7 @@ def test_create_and_get_meter_reading(client, mocker):
     result = client.get_meter_point_readings(meter_point_id=meter_point_id)
     assert len(result)
     added_reading = result[-1]
+    assert added_reading['meterReadingSource'] == 'SMART'
     assert added_reading['readings'] == [
         {
             'id': mocker.ANY,

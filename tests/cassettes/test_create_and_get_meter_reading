@@ -34,7 +34,7 @@ interactions:
       Content-Encoding: [gzip]
       Content-Length: ['928']
       Content-Type: [application/json; charset=utf-8]
-      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Date: ['Mon, 30 Jul 2018 12:59:53 GMT']
       Expires: ['-1']
       Pragma: [no-cache]
       Server: [Microsoft-IIS/8.5]
@@ -42,13 +42,13 @@ interactions:
       X-Powered-By: [ASP.NET]
     status: {code: 200, message: OK}
 - request:
-    body: '[{"meterPointId": 1597, "dateTime": "2018-07-24T13:31:39.400855+00:00",
-      "readings": [{"registerId": 1496, "value": 2.0}]}]'
+    body: '[{"meterPointId": 1597, "dateTime": "2018-07-30T12:59:53.500485+00:00",
+      "meterReadingSource": "SMART", "readings": [{"registerId": 1496, "value": 2.0}]}]'
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['122']
+      Content-Length: ['153']
       Content-Type: [application/json]
       User-Agent: [python-requests/2.19.1]
     method: POST
@@ -60,7 +60,7 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['2']
       Content-Type: [application/json; charset=utf-8]
-      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Date: ['Mon, 30 Jul 2018 12:59:53 GMT']
       Expires: ['-1']
       Pragma: [no-cache]
       Server: [Microsoft-IIS/8.5]
@@ -79,22 +79,23 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAEAL3X30vDMBAH8P8lz1u4Sy5NmzeZPvggiqtPw4exllHwF7MTRPzfvU4ZCF5YbAmU
-        PZRrLh+y7b5dfaiuUQERrJ2pXbtuuqdt/f7SqqDONv1+/aBm6rHt293Nc/fUX3ItzFSz7tu6exyK
-        DKCfA/JVA4TDxU9seKW+bc75Q6z5afaqwuq4CV8M97fdKzcceiFVfOdt/bDndRAANHze/2zo9vv5
-        5fN+txm6nC/U5+y4Uln8l1POwc+NjXK+a6hGCLbgdrqgv0VofEQE2oicxd2yvr66uP2F8plQZAN6
-        7Y2EKqdElflQ1uuKvKSqplRVWVRmqMFKE0oqCxOqKhinogQVIX8BRRVOqcJcKgxkNDorqcyUKpNL
-        RcEV2jnxrOyUqn+PqVSV5xqNpYSi2KSKjKk/UZQPZYrIX6B1U6pcLlUZjNHGSahoqEhFjcwVKShX
-        8lFJqFiuMKmokbniZBQeflQg5QobyxXJqJG54mSU4xDIm5NnVSxXJKtG5ooUFZHmSC6oKJYrElWc
-        7HOpeAJ7DdIAplisSEblihWMcpZjhXhUsViRrMoVK9yQlzSSeFaxWJGsyhMr+A0Eg3UcliRULFac
-        hrr/ApA9GLXUDwAA
+        H4sIAAAAAAAEAL3XTWvjMBAG4P+icyJm9GHZuoW2hz2UXRL3VHoIiSmGfiyps7As/e87bkOhtKN2
+        LCMwOZix5YdxNK+v/6l+ryIiWLtQh2677x9u27+/OxXVajcct3dqoe67oTv8euwfhh9UCwu13w5d
+        29+PRQYwLAHpaAHiy0FX7OhOQ7c/px+25rTYk4rXbw8RqvH8bf9EC45roWvozJ/t3ZHugwCg4fnm
+        9EDr1+s3j8fDblzl/Ew9L97uVFdTOfUSwtLYJOe1xrUI0Va0nK7c5yI0ISECbVjO2dWm/Xl5sX6H
+        CoVQzkYMOhgOVc+JqsuhbNCNC5yqmVPVFFGZsQYb7ZBTWZhR1UCeyglUDukFZFU4pwpLqTA6o9Fb
+        TmXmVJlSKhd9pb1ne2XnVE0eU1JVoBqNNYdyqUmVGFOfolw5lKkSW6D1c6p8KVUdjdHGc6hkqJCi
+        MnOFBOVrahWHSuUKI0Vl5opvo/DlTwVcrrCpXCFGZeaKb6M8hUB6OH5WpXKFWJWZKyQq5zRFckbl
+        UrlCqKJkX0pFEzho4AawS8UKMapUrCCUtxQr2FalYoVYVSpW+DEvaXRsr1KxQqwqEyvoCwSj9RSW
+        OFQqVohReQPYwtcoqhlbVUf02gb2BUzFipRqc7lat+9IeeNXRLJWB36nSIUKcaPy5q9IRZ9VgBxq
+        aqj42Ke84SsS0d5nLPvqTY0UH0l5k1dAamhHT03eqXniRLr5D1zDJov1EwAA
     headers:
       Cache-Control: [no-cache]
       Connection: [keep-alive]
       Content-Encoding: [gzip]
-      Content-Length: ['468']
+      Content-Length: ['558']
       Content-Type: [application/json; charset=utf-8]
-      Date: ['Tue, 24 Jul 2018 13:31:39 GMT']
+      Date: ['Mon, 30 Jul 2018 12:59:54 GMT']
       Expires: ['-1']
       Pragma: [no-cache]
       Server: [Microsoft-IIS/8.5]

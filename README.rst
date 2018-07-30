@@ -66,7 +66,7 @@ Available methods
 
 **Create a meter reading**
 
-``client.create_meter_reading(account_id=1507, meter_point_id=1597, register_id=1496, value=2.0, timestamp=datetime(2018, 7, 24, 13, 49, 34, 661562, tzinfo=timezone.utc))``
+``client.create_meter_reading(account_id=1507, source='SMART', meter_point_id=1597, register_id=1496, value=2.0, timestamp=datetime(2018, 7, 24, 13, 49, 34, 661562, tzinfo=timezone.utc))``
 
 **Get readings for a meter point**
 
