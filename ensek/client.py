@@ -45,7 +45,7 @@ class Ensek:
 
     def create_meter_reading(
         self, *, account_id, meter_point_id, register_id, value, timestamp,
-        source=None,
+        source
     ):
         path = self.ENDPOINTS['create_meter_reading'].substitute(
             account_id=account_id
