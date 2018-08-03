@@ -56,7 +56,7 @@ class Ensek:
                 'dateTime': timestamp.isoformat(),
                 'meterReadingSource': source,
                 'readings': [{
-                    'registerId': int(register_id),
+                    'registerId': register_id,
                     'value': float(value),
                 }],
             }
