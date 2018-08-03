@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.3.1 (unreleased)
+1.3.1 (2018-08-03)
 ++++++++++++++++++
 
 - Fixes bug in ``create_meter_reading`` when reading_id passed as a string.
