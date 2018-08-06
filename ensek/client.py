@@ -45,7 +45,7 @@ class Ensek:
 
     def create_meter_reading(
         self, *, account_id, meter_point_id, register_id, value, timestamp,
-        source
+        source=None,
     ):
         path = self.ENDPOINTS['create_meter_reading'].substitute(
             account_id=account_id
@@ -56,7 +56,7 @@ class Ensek:
                 'dateTime': timestamp.isoformat(),
                 'meterReadingSource': source,
                 'readings': [{
-                    'registerId': register_id,
+                    'registerId': int(register_id),
                     'value': float(value),
                 }],
             }
