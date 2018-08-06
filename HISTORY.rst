@@ -3,12 +3,25 @@
 Release History
 ---------------
 
+<<<<<<< HEAD
 1.3.1 (unreleased)
+=======
+1.3.2 (unreleased)
+>>>>>>> 09e975c91cc2dd029147ab3022efefcade03769e
 ++++++++++++++++++
 
 - Nothing changed yet.
 
 
+<<<<<<< HEAD
+=======
+1.3.1 (2018-08-03)
+++++++++++++++++++
+
+- Fixes bug in ``create_meter_reading`` when reading_id passed as a string.
+
+
+>>>>>>> 09e975c91cc2dd029147ab3022efefcade03769e
 1.3.0 (2018-07-29)
 ++++++++++++++++++
 
