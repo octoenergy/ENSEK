@@ -6,7 +6,7 @@ Release History
 1.4.1 (unreleased)
 ++++++++++++++++++
 
-- Nothing changed yet.
+- Bugfix ``get_all_account_ids`` method, was previously returning a subset of the total ids.
 
 
 1.4.0 (2018-08-10)

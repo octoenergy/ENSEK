@@ -23,7 +23,6 @@ class Ensek:
         'get_meter_point_readings': Template(
             '/MeterPoints/$meter_point_id/Readings'
         ),
-        'get_completed_signups': Template('/SignUps/Completed'),
         'get_meter_points': Template('/Accounts/$account_id/MeterPoints'),
         'create_meter_reading': Template('/Accounts/$account_id/Readings'),
         'get_region_id_for_postcode': Template('/Regions/$postcode'),
@@ -46,6 +45,25 @@ class Ensek:
         self._api_key = api_key
         self._resource_path = None
         self._headers = {'Authorization': f'Bearer {self._api_key}'}
+
+    def get_all_account_ids(self):
+
+        def _get_completed_signups(after=None):
+            if after is not None:
+                return self._get(f'/SignUps/Completed?after={after}')
+            else:
+                return self._get('/SignUps/Completed')
+
+        ids = []
+        last_id = None
+        while True:
+            resp = _get_completed_signups(after=last_id)
+            account_ids = tuple(r['accountId'] for r in resp['results'])
+            if not account_ids:
+                break
+            last_id = max(account_ids)
+            ids.extend(account_ids)
+        return set(ids)
 
     def create_meter_reading(
         self, *, account_id, meter_point_id, register_id, value, timestamp,
