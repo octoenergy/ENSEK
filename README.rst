@@ -50,10 +50,6 @@ Available methods
 
 ``client.get_meter_points(account_id=123)``
 
-**Get recent newly registered accounts**
-
-``client.get_completed_signups()``
-
 **Get the account id currently associated with an MPAN core id or MPRN**
 
 ``client.get_account_for_meter_point(meter_point_id='9910000001507')``
@@ -77,6 +73,10 @@ Available methods
 **Get readings for a meter point**
 
 ``client.get_meter_point_readings(meter_point_id=1597)``
+
+**Get all customer account ids**
+
+``client.get_all_account_ids()``
 
 Note: For each client method:
 

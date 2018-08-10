@@ -40,8 +40,8 @@ def test_get_account(client):
 
 
 @my_vcr.use_cassette()
-def test_get_completed_signups(client):
-    result = client.get_completed_signups(after=1500)
+def test_get_all_account_ids(client):
+    result = client.get_all_account_ids(after=1500)
 
     assert isinstance(result, dict)
     assert set(result.keys()) == {'results', 'meta'}
@@ -341,3 +341,11 @@ def test_get_live_balances_detailed(client):
 
     expected_resp = {'TotalCharges': 0.0, 'Charges': []}
     assert resp == expected_resp
+
+
+@my_vcr.use_cassette()
+def test_get_all_account_ids(client):
+    account_numbers = client.get_all_account_ids()
+
+    assert account_numbers
+    assert all(isinstance(num, int) for num in account_numbers)
