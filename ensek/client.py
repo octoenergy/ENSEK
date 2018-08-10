@@ -35,6 +35,10 @@ class Ensek:
         'get_account_for_meter_point': Template(
             '/Accounts/Lookups/MeterPoints/$meter_point_id'
         ),
+        'get_live_balances': Template('/Accounts/$account_id/LiveBalances'),
+        'get_live_balances_detailed': Template(
+            '/Accounts/$account_id/LiveBalancesWithDetail'
+        ),
     }
 
     def __init__(self, *, api_url, api_key):
@@ -97,6 +101,7 @@ class Ensek:
         ):
             raise ValueError(msg)
         else:
+            msg = f'{msg}: {response.text}'
             raise EnsekError(msg, response=response)
 
     def __getattr__(self, name):
