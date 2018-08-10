@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.4.0 (unreleased)
+1.4.0 (2018-08-10)
 ++++++++++++++++++
 
 - Adds ``get_live_balances`` method.
