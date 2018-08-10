@@ -36,6 +36,12 @@ Available methods
 
 ``client.get_account(account_id=123)``
 
+**Get account live balances**
+
+``client.get_live_balances(account_id=123)``
+
+``client.get_live_balances_detailed(account_id=123)``
+
 **Get tariffs for an account by id**
 
 ``client.get_account_tariffs(account_id=123)``

@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/Accounts/1500/LiveBalances
+  response:
+    body: {string: '{"pendingPayments":0.0,"lastBill":null,"unbilledCharges":0.0,"estimatedCharges":0.0,"standingCharges":0.0,"discountCharges":0.0,"cclCharges":0.0,"total":{"$type":"CRMPortalServices.Interface.Account.Statementing.StatementTotalLine,
+        CRMPortalServices.Interface","gross":0.0,"net":0.0,"tax":0.0,"taxDetails":[]},"lastUpdated":"0001-01-01T00:00:00","newTransactions":0.0,"currentBalance":0.0,"lastTransactionBalance":null}'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['419']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Fri, 10 Aug 2018 07:41:01 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1

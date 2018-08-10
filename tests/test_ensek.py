@@ -308,3 +308,36 @@ def test_get_electricity_utility(client):
         'standardSettlementConfigurationDate': None,
         'statusDate': '1997-11-21T00:00:00'
     }
+
+
+@my_vcr.use_cassette()
+def test_get_live_balances(client):
+    account_id = 1500
+    resp = client.get_live_balances(account_id=account_id)
+
+    expected_resp = {
+        'pendingPayments': 0.0, 'lastBill': None, 'unbilledCharges': 0.0,
+        'estimatedCharges': 0.0, 'standingCharges': 0.0,
+        'discountCharges': 0.0, 'cclCharges': 0.0,
+        'total': {
+            '$type': (
+                'CRMPortalServices.Interface.Account.Statementing.'
+                'StatementTotalLine, CRMPortalServices.Interface'
+            ),
+            'gross': 0.0, 'net': 0.0, 'tax': 0.0, 'taxDetails': []
+        },
+        'lastUpdated': '0001-01-01T00:00:00',
+        'newTransactions': 0.0,
+        'currentBalance': 0.0,
+        'lastTransactionBalance': None
+    }
+    assert resp == expected_resp
+
+
+@my_vcr.use_cassette()
+def test_get_live_balances_detailed(client):
+    account_id = 1500
+    resp = client.get_live_balances_detailed(account_id=account_id)
+
+    expected_resp = {'TotalCharges': 0.0, 'Charges': []}
+    assert resp == expected_resp
