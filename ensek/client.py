@@ -1,5 +1,4 @@
 import logging
-from itertools import islice
 from urllib.parse import urljoin
 from http.client import NOT_FOUND, INTERNAL_SERVER_ERROR, BAD_REQUEST
 from string import Template
@@ -24,7 +23,6 @@ class Ensek:
         'get_meter_point_readings': Template(
             '/MeterPoints/$meter_point_id/Readings'
         ),
-        'get_all_account_ids': Template('/SignUps/Completed'),
         'get_meter_points': Template('/Accounts/$account_id/MeterPoints'),
         'create_meter_reading': Template('/Accounts/$account_id/Readings'),
         'get_region_id_for_postcode': Template('/Regions/$postcode'),

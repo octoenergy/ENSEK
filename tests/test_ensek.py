@@ -40,14 +40,6 @@ def test_get_account(client):
 
 
 @my_vcr.use_cassette()
-def test_get_all_account_ids(client):
-    result = client.get_all_account_ids(after=1500)
-
-    assert isinstance(result, dict)
-    assert set(result.keys()) == {'results', 'meta'}
-
-
-@my_vcr.use_cassette()
 def test_get_meter_points(client):
     results = client.get_meter_points(account_id=ACCOUNT_ID)
 

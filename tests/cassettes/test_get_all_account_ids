@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/SignUps/Completed
+  response:
+    body: {string: '{"results":[{"accountId":1513,"createdDateTime":"2017-10-09T10:55:37.543"},{"accountId":1514,"createdDateTime":"2017-10-09T17:15:47.3"},{"accountId":1515,"createdDateTime":"2017-10-10T17:30:25.257"},{"accountId":1516,"createdDateTime":"2017-10-17T08:44:16.343"},{"accountId":1530,"createdDateTime":"2018-06-26T14:33:40.16"},{"accountId":1531,"createdDateTime":"2018-06-26T15:01:52.57"},{"accountId":1534,"createdDateTime":"2018-07-05T09:00:29.027"},{"accountId":1535,"createdDateTime":"2018-07-06T14:53:32.74"},{"accountId":1537,"createdDateTime":"2018-08-08T11:48:24.827"},{"accountId":1538,"createdDateTime":"2018-08-08T11:41:13.187"},{"accountId":1539,"createdDateTime":"2018-08-09T08:29:37.493"}],"meta":{"before":1513,"after":1539,"results":11,"pageSize":50}}'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['764']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Fri, 10 Aug 2018 09:43:14 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/SignUps/Completed?after=1539
+  response:
+    body: {string: '{"results":[],"meta":{"before":null,"after":null,"results":0,"pageSize":50}}'}
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['76']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Fri, 10 Aug 2018 09:43:14 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1
