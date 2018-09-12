@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.5.0 (unreleased)
+1.5.0 (2018-09-12)
 ++++++++++++++++++
 
 - Adds ``get_addresses_at_postcode`` method.
