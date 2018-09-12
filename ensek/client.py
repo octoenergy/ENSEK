@@ -38,6 +38,9 @@ class Ensek:
         'get_live_balances_detailed': Template(
             '/Accounts/$account_id/LiveBalancesWithDetail'
         ),
+        'get_addresses_at_postcode': Template(
+            '/PostcodeLookups?postcode=$postcode'
+        )
     }
 
     def __init__(self, *, api_url, api_key):

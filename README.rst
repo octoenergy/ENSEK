@@ -78,6 +78,10 @@ Available methods
 
 ``client.get_all_account_ids()``
 
+**Get addresses at a postcode**
+
+``client.get_addresses_at_postcode(postcode='se14yu')``
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.
