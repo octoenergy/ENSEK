@@ -36,6 +36,10 @@ Available methods
 
 ``client.get_account(account_id=123)``
 
+**Get account settings by id**
+
+``client.get_account_settings(account_id=123)``
+
 **Get account live balances**
 
 ``client.get_live_balances(account_id=123)``

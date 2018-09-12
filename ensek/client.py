@@ -20,6 +20,9 @@ class Ensek:
 
     ENDPOINTS = {
         'get_account': Template('/accounts/$account_id'),
+        'get_account_settings': Template(
+            '/accounts/$account_id/AccountSettings'
+        ),
         'get_meter_point_readings': Template(
             '/MeterPoints/$meter_point_id/Readings'
         ),

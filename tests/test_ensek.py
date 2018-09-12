@@ -40,6 +40,25 @@ def test_get_account(client):
 
 
 @my_vcr.use_cassette()
+def test_get_account_settings(client):
+    result = client.get_account_settings(account_id=ACCOUNT_ID)
+
+    assert isinstance(result, dict)
+    assert result == {
+        'AccountID': 1507,
+        'BillDayOfMonth': 6,
+        'BillFrequencyMonths': 1,
+        'TopupWithEstimates': True,
+        'SendEmail': True,
+        'SendPost': False,
+        'NextBillDate': '2018-10-06T00:00:00',
+        'NextBillDay': 6,
+        'NextBillMonth': 10,
+        'NextBillYear': 2018
+    }
+
+
+@my_vcr.use_cassette()
 def test_get_meter_points(client):
     results = client.get_meter_points(account_id=ACCOUNT_ID)
 
