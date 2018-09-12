@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.5.1 (unreleased)
+1.6.0 (unreleased)
 ++++++++++++++++++
 
 - Adds ``get_account_settings`` method.
