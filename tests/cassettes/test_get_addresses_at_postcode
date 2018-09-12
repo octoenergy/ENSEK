@@ -1,0 +1,38 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://internal.api.uat.usio.ignition.ensek.co.uk/PostcodeLookups?postcode=se14yu
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEAN3aTU/jQAwG4L9SzTmH2pn0g9tGgISEOMByQLscpp0BIk1nqjQ5ILT/nYYq7S7a
+        qGDFrdxb0zRfjxq3fp1fb6pelkGdKQSdZZNUq0QZa4uqiMH4q/AUy4VpFtRZqL1P1Kqe5XXhbRGe
+        b8zC3dSLmSvblbP/rFGw3qV1SxesC9XPl1jG+vnlyZSu3ar65z1150zp3WpwG41tNo31zLvzdgfX
+        cW58Ub22G9uuFX67rK5jsOsrSNQ81mH3iWVcVfNoP455AQP9cN8crlgtvXltrqA598HfZ5P8Dptd
+        rV+0W/xJPhFq7J8QBRMigXDaP2EqmDD9PmE27J9QCybUBELonzATTJgRCBlq4Ugw4YhAmPZPOBZM
+        OCYQMvypmQgmnBAIs/4Jp4IJp98nTBkIYSjYEIYExBEDougGhdChpGMGRMktChB6FDKiuvSmGjTf
+        udOD3Fzamu0Ioni6okgVnTDc6JIbaSB00ilDGAGSW2kg9NLIgSi5mQZCN01G3FSRH50FUjLk5tKa
+        Anl40fx0RXOqKMdPjuTIBwiZDxlx340uGXJ3ox9etPtGFy+aE0U1w4ABJAeTQEgmkaMTlxxNAiGb
+        JCPuq5aSIXfV8vCi3dVSvGhOFNUMs0SQHKADIUFHhvAXJSfoSEjQyYh7qqVoyG21PIJoZ7WUL5oT
+        RTXDzBslT3mQ8hwaw9QbJUfpSHkSjWFoi5ITdCQk6Jrjd1tygo6EBJ2MuGfeKBpyO288gmjnvFG+
+        KFJFGeIMlBylIyFB1wwJOkqOKfEL6eTjO4SjzTjJMAAA
+    headers:
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['603']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Wed, 12 Sep 2018 09:55:54 GMT']
+      Expires: ['-1']
+      Pragma: [no-cache]
+      Server: [Microsoft-IIS/8.5]
+      X-AspNet-Version: [4.0.30319]
+      X-Powered-By: [ASP.NET]
+    status: {code: 200, message: OK}
+version: 1

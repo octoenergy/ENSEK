@@ -341,3 +341,25 @@ def test_get_all_account_ids(client):
 
     assert account_numbers
     assert all(isinstance(num, int) for num in account_numbers)
+
+
+@my_vcr.use_cassette()
+def test_get_addresses_at_postcode(client, mocker):
+    results = client.get_addresses_at_postcode(postcode='se14yu')
+
+    assert results
+    for result in results:
+        assert result == {
+            'uprn': mocker.ANY,
+            'additionalInformation': mocker.ANY,
+            'subBuildingNameNumber': mocker.ANY,
+            'buildingNameNumber': mocker.ANY,
+            'dependentThoroughfare': mocker.ANY,
+            'thoroughfare': mocker.ANY,
+            'doubleDependentLocality': mocker.ANY,
+            'dependentLocality': mocker.ANY,
+            'locality': mocker.ANY,
+            'county': mocker.ANY,
+            'postcode': 'SE1 4YU',
+            'displayName': mocker.ANY,
+        }
