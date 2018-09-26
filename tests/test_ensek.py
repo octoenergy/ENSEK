@@ -382,3 +382,39 @@ def test_get_addresses_at_postcode(client, mocker):
             'postcode': 'SE1 4YU',
             'displayName': mocker.ANY,
         }
+
+
+@my_vcr.use_cassette()
+def test_get_account_attributes(client, mocker):
+    results = client.get_account_attributes(account_id=ACCOUNT_ID)
+
+    expected_results = [
+        {
+            'accountId': ACCOUNT_ID,
+            'name': 'PaymentType',
+            'value': mocker.ANY,
+            'type': 'string'
+        }
+    ]
+    assert results == expected_results
+
+
+@my_vcr.use_cassette()
+def test_update_account_attribute(client):
+    updated = client.update_account_attribute(
+        account_id=ACCOUNT_ID,
+        name='PaymentType',
+        value='value',
+        type='string',
+    )
+
+    assert updated is True
+    # Check it was updated
+    results = client.get_account_attributes(account_id=ACCOUNT_ID)
+    expected_results = [{
+        'accountId': ACCOUNT_ID,
+        'name': 'PaymentType',
+        'value': 'value',
+        'type': 'string',
+    }]
+    assert results == expected_results

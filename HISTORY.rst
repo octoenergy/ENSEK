@@ -3,11 +3,11 @@
 Release History
 ---------------
 
-1.6.1 (unreleased)
+1.7.0 (unreleased)
 ++++++++++++++++++
 
-- Nothing changed yet.
-
+- Adds ``update_account_attribute`` method.
+- Adds ``get_account_attributes`` method.
 
 1.6.0 (2018-09-12)
 ++++++++++++++++++
