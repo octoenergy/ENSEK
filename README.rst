@@ -86,6 +86,23 @@ Available methods
 
 ``client.get_addresses_at_postcode(postcode='se14yu')``
 
+**Get account attributes**
+
+```python
+client.get_account_attributes(account_id=1597)
+```
+
+**Update account attribute**
+
+```python
+client.update_account_attribute(
+    account_id=1597,
+    name='PaymentType',
+    value='some-value',
+    type='string',
+)
+```
+
 Note: For each client method:
 
 - If API response is 404, method will raise ``LookupError``.

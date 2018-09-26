@@ -43,7 +43,13 @@ class Ensek:
         ),
         'get_addresses_at_postcode': Template(
             '/PostcodeLookups?postcode=$postcode'
-        )
+        ),
+        'get_account_attributes': Template(
+            '/accounts/$account_id/Attributes'
+        ),
+        'update_account_attributes': Template(
+            '/accounts/$account_id/Attributes'
+        ),
     }
 
     def __init__(self, *, api_url, api_key):
@@ -91,28 +97,48 @@ class Ensek:
         ]
         return self._post(path=path, body=body)
 
+    def update_account_attribute(self, *, account_id, name, value, type):
+        path = self.ENDPOINTS['update_account_attributes'].substitute(
+            account_id=account_id
+        )
+        body = {
+            'updatedAttributes': [{
+                'accountId': account_id,
+                'name': name,
+                'value': value,
+                'type': type,
+            }],
+            'deletedAttributes': []
+        }
+        self._put(path=path, body=body, json_resp=False)
+
     def _path_to_full_url(self, path):
         return urljoin(self._api_url, path.lstrip('/'))
 
     def _get(self, path, params=None):
-        url = self._path_to_full_url(path)
-        try:
-            response = requests.get(url, headers=self._headers, params=params)
-        except RequestException as exc:
-            raise EnsekError(exc, response=None) from exc
-        if not response.ok:
-            self._handle_bad_response(response)
-        return response.json()
+        return self._request(method='get', path=path, params=params)
 
     def _post(self, *, path, body):
+        return self._request(method='post', path=path, body=body)
+
+    def _put(self, *, path, body, json_resp=True):
+        return self._request(
+            method='put', path=path, body=body, json_resp=json_resp
+        )
+
+    def _request(self, method, path, body=None, params=None, json_resp=True):
         url = self._path_to_full_url(path)
         try:
-            response = requests.post(url, headers=self._headers, json=body)
+            response = getattr(requests, method)(
+                url, headers=self._headers, json=body, params=params
+            )
         except RequestException as exc:
             raise EnsekError(exc, response=None) from exc
         if not response.ok:
             self._handle_bad_response(response)
-        return response.json()
+        if json_resp:
+            return response.json()
+        return response.text
 
     @staticmethod
     def _handle_bad_response(response):
