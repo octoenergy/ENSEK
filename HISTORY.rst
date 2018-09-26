@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.6.0 (2018-09-26)
+1.7.0 (2018-09-26)
 ++++++++++++++++++
 
 - Adds ``update_account_attribute`` method.
