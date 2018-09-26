@@ -111,7 +111,6 @@ class Ensek:
             'deletedAttributes': []
         }
         self._put(path=path, body=body, json_resp=False)
-        return True
 
     def _path_to_full_url(self, path):
         return urljoin(self._api_url, path.lstrip('/'))
