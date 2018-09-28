@@ -6,7 +6,7 @@ import itertools
 import pytest
 import vcr
 
-from ensek import Ensek
+from ensek import Ensek, retry_api_call
 
 my_vcr = vcr.VCR(
     serializer='yaml',
@@ -27,6 +27,42 @@ MPAN_CORE_ID = '9910000001507'
 @pytest.fixture
 def client():
     return Ensek(api_url=ENSEK_API_URL, api_key=ENSEK_API_KEY)
+
+def test_retry_api_call(mocker):
+    mock_thing = mocker.Mock(
+        side_effect=[
+            ValueError,
+            ValueError,
+            'Hello world',
+            ValueError,
+            ValueError,
+            ValueError,
+        ]
+    )
+
+    @retry_api_call(ValueError, Exception, max_retries=3)
+    def api_func():
+        return mock_thing()
+
+    # Check the function retried until it got to the good result
+    assert api_func() == 'Hello world'
+
+    @retry_api_call(RuntimeError)
+    def api_func2():
+        return mock_thing()
+
+    # Should raise if an exception other than the ones passed into
+    # ``retry_api_call`` raise from within the function
+    with pytest.raises(ValueError):
+        api_func2()
+
+    @retry_api_call(ValueError, Exception, max_retries=2)
+    def api_func3():
+        return mock_thing()
+
+    # Check raises if runs out of retries
+    with pytest.raises(ValueError):
+        api_func3()
 
 
 @my_vcr.use_cassette()

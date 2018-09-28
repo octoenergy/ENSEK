@@ -6,14 +6,40 @@ from string import Template
 import stringcase
 import requests
 from requests.exceptions import RequestException
+from functools import wraps
+from tenacity import (
+    retry, before_log, wait_fixed, stop_after_attempt, retry_if_exception_type
+)
 
 logger = logging.getLogger(__name__)
 
+API_CALL_RETRIES = 5
+API_CALL_RETRY_WAIT = 1 
 
 class EnsekError(Exception):
     def __init__(self, message, response):
         self.response = response
         self.message = message
+
+
+def retry_api_call(
+    *exception_types, max_retries=API_CALL_RETRIES
+):
+    exception_types = exception_types or (Exception,)
+
+    def decorator(func):
+        @retry(
+            stop=stop_after_attempt(max_retries),
+            wait=wait_fixed(API_CALL_RETRY_WAIT),
+            before=before_log(logging, logging.INFO),
+            retry=retry_if_exception_type(exception_types),
+            reraise=True,
+        )
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
 
 
 class Ensek:
@@ -126,6 +152,7 @@ class Ensek:
             method='put', path=path, body=body, json_resp=json_resp
         )
 
+    @retry_api_call(EnsekError)
     def _request(self, method, path, body=None, params=None, json_resp=True):
         url = self._path_to_full_url(path)
         try:
