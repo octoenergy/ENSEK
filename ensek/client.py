@@ -13,8 +13,6 @@ from tenacity import (
 
 logger = logging.getLogger(__name__)
 
-API_CALL_RETRIES = 5
-API_CALL_RETRY_WAIT = 1 
 
 class EnsekError(Exception):
     def __init__(self, message, response):
@@ -22,23 +20,25 @@ class EnsekError(Exception):
         self.message = message
 
 
-def retry_api_call(
-    *exception_types, max_retries=API_CALL_RETRIES
-):
-    exception_types = exception_types or (Exception,)
-
-    def decorator(func):
-        @retry(
-            stop=stop_after_attempt(max_retries),
-            wait=wait_fixed(API_CALL_RETRY_WAIT),
-            before=before_log(logging, logging.INFO),
-            retry=retry_if_exception_type(exception_types),
-            reraise=True,
-        )
-        @wraps(func)
-        def wrapper(*args, **kwargs):
+def _retry_on_ensek_error(func):
+    def decorator(*args, **kwargs):
+        client = args[0]
+        max_retries = client._retry_count
+        retry_wait = client._retry_wait
+        if max_retries:
+            @retry(
+                stop=stop_after_attempt(max_retries),
+                wait=wait_fixed(retry_wait),
+                before=before_log(logging, logging.INFO),
+                retry=retry_if_exception_type(EnsekError),
+                reraise=True,
+            )
+            @wraps(func)
+            def wrap():
+                return func(*args, **kwargs)
+            return wrap()
+        else:
             return func(*args, **kwargs)
-        return wrapper
     return decorator
 
 
@@ -78,12 +78,20 @@ class Ensek:
         ),
     }
 
-    def __init__(self, *, api_url, api_key):
+    def __init__(self, *, api_url, api_key, retry_count=0, retry_wait=0):
         self._api_url = api_url.rstrip('/')
         self._api_key = api_key
         self._resource_path = None
         self._headers = {'Authorization': f'Bearer {self._api_key}'}
-
+        
+        if bool(retry_count) != bool(retry_wait):
+            raise ValueError(
+                'retry_count and retry_wait must have the same truth value'
+            )
+        else:
+            self._retry_count = retry_count
+            self._retry_wait = retry_wait
+        
     def get_all_account_ids(self):
 
         def _get_completed_signups(after=None):
@@ -152,7 +160,7 @@ class Ensek:
             method='put', path=path, body=body, json_resp=json_resp
         )
 
-    @retry_api_call(EnsekError)
+    @_retry_on_ensek_error
     def _request(self, method, path, body=None, params=None, json_resp=True):
         url = self._path_to_full_url(path)
         try:
