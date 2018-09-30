@@ -38,10 +38,10 @@ def mock_response(*, json, ok, status_code):
             self._json = json
             self.ok = ok
             self.status_code = status_code
-        
+
         def json(self):
             return self._json
-    
+
     return Response()
 
 
@@ -63,7 +63,8 @@ def test_client_init(retries, retry_wait, expect_raise):
     else:
         client_factory(retries=retries, retry_wait=retry_wait)
 
-@pytest.mark.parametrize('retries', [0,1,2,3])
+
+@pytest.mark.parametrize('retries', [0, 1, 2, 3])
 def test_request_retries_on_ensek_error(mocker, retries):
     side_effect = [EnsekError('', '') for _ in range(retries - 1)]
     expected_result = {'message': 'success'}
@@ -85,13 +86,13 @@ def test_request_raises_after_retries_exceeded(mocker):
         EnsekError('', None),
     ])
     client = client_factory(retries=3, retry_wait=0.1)
-    with pytest.raises(EnsekError) as exc:
+    with pytest.raises(EnsekError):
         client._request('get', 'fakepath')
 
 
 def test_request_raises_when_request_exception(mocker, client):
     mocker.patch('requests.get', side_effect=RequestException)
-    with pytest.raises(EnsekError) as exc:
+    with pytest.raises(EnsekError):
         client._request('get', 'fakepath')
 
 

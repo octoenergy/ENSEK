@@ -83,7 +83,7 @@ class Ensek:
         self._api_key = api_key
         self._resource_path = None
         self._headers = {'Authorization': f'Bearer {self._api_key}'}
-        
+
         if bool(retry_count) != bool(retry_wait):
             raise ValueError(
                 'retry_count and retry_wait must have the same truth value'
@@ -91,7 +91,7 @@ class Ensek:
         else:
             self._retry_count = retry_count
             self._retry_wait = retry_wait
-        
+
     def get_all_account_ids(self):
 
         def _get_completed_signups(after=None):
