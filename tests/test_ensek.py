@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import itertools
 from requests.exceptions import RequestException
+from http.client import OK
 
 import pytest
 import vcr
@@ -69,7 +70,7 @@ def test_request_retries_on_ensek_error(mocker, retries):
     side_effect = [EnsekError('', '') for _ in range(retries - 1)]
     expected_result = {'message': 'success'}
     response = mock_response(
-        json=expected_result, ok=True, status_code=200
+        json=expected_result, ok=True, status_code=OK
     )
     side_effect.append(response)
     mocker.patch('requests.get', side_effect=side_effect)
