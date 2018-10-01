@@ -18,6 +18,7 @@ class EnsekError(Exception):
     def __init__(self, message, response):
         self.response = response
         self.message = message
+        Exception.__init__(self, message, response)
 
 
 def _retry_on_ensek_error(func):
