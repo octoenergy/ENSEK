@@ -3,7 +3,7 @@
 Release History
 ---------------
 
-1.8.0 (unreleased)
+1.8.0 (2018-10-01)
 ++++++++++++++++++
 
 - Add retrying feature to the ``_request`` method. 
