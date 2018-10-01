@@ -3,11 +3,11 @@
 Release History
 ---------------
 
-1.7.1 (unreleased)
+1.8.0 (unreleased)
 ++++++++++++++++++
 
-- Nothing changed yet.
-
+- Add retrying feature to the ``_request`` method. 
+- Bugfix: Initialize EnsekError with super() to avoid pickling errors.
 
 1.7.0 (2018-09-26)
 ++++++++++++++++++

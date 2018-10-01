@@ -6,6 +6,10 @@ from string import Template
 import stringcase
 import requests
 from requests.exceptions import RequestException
+from functools import wraps
+from tenacity import (
+    retry, before_log, wait_fixed, stop_after_attempt, retry_if_exception_type
+)
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +18,29 @@ class EnsekError(Exception):
     def __init__(self, message, response):
         self.response = response
         self.message = message
+        super().__init__(self, message, response)
+
+
+def _retry_on_ensek_error(func):
+    def decorator(*args, **kwargs):
+        client = args[0]
+        max_retries = client._retry_count
+        retry_wait = client._retry_wait
+        if max_retries:
+            @retry(
+                stop=stop_after_attempt(max_retries),
+                wait=wait_fixed(retry_wait),
+                before=before_log(logging, logging.INFO),
+                retry=retry_if_exception_type(EnsekError),
+                reraise=True,
+            )
+            @wraps(func)
+            def wrap():
+                return func(*args, **kwargs)
+            return wrap()
+        else:
+            return func(*args, **kwargs)
+    return decorator
 
 
 class Ensek:
@@ -52,11 +79,19 @@ class Ensek:
         ),
     }
 
-    def __init__(self, *, api_url, api_key):
+    def __init__(self, *, api_url, api_key, retry_count=0, retry_wait=0):
         self._api_url = api_url.rstrip('/')
         self._api_key = api_key
         self._resource_path = None
         self._headers = {'Authorization': f'Bearer {self._api_key}'}
+
+        if bool(retry_count) != bool(retry_wait):
+            raise ValueError(
+                'retry_count and retry_wait must have the same truth value'
+            )
+        else:
+            self._retry_count = retry_count
+            self._retry_wait = retry_wait
 
     def get_all_account_ids(self):
 
@@ -126,6 +161,7 @@ class Ensek:
             method='put', path=path, body=body, json_resp=json_resp
         )
 
+    @_retry_on_ensek_error
     def _request(self, method, path, body=None, params=None, json_resp=True):
         url = self._path_to_full_url(path)
         try:

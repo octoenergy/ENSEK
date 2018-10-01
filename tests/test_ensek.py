@@ -2,11 +2,13 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 import itertools
+from requests.exceptions import RequestException
+from http.client import OK
 
 import pytest
 import vcr
 
-from ensek import Ensek
+from ensek import Ensek, EnsekError
 
 my_vcr = vcr.VCR(
     serializer='yaml',
@@ -24,9 +26,75 @@ ACCOUNT_ID = 1507
 MPAN_CORE_ID = '9910000001507'
 
 
+def client_factory(*, retries=0, retry_wait=0):
+    return Ensek(
+            api_url=ENSEK_API_URL, api_key=ENSEK_API_KEY,
+            retry_count=retries, retry_wait=retry_wait
+        )
+
+
+def mock_response(*, json, ok, status_code):
+    class Response:
+        def __init__(self):
+            self._json = json
+            self.ok = ok
+            self.status_code = status_code
+
+        def json(self):
+            return self._json
+
+    return Response()
+
+
 @pytest.fixture
 def client():
-    return Ensek(api_url=ENSEK_API_URL, api_key=ENSEK_API_KEY)
+    return client_factory()
+
+
+@pytest.mark.parametrize('retries, retry_wait, expect_raise', [
+    (5, 0, True),
+    (0, 5, True),
+    (0, 0, False),
+    (5, 6, False)
+])
+def test_client_init(retries, retry_wait, expect_raise):
+    if expect_raise:
+        with pytest.raises(ValueError):
+            client_factory(retries=retries, retry_wait=retry_wait)
+    else:
+        client_factory(retries=retries, retry_wait=retry_wait)
+
+
+@pytest.mark.parametrize('retries', [0, 1, 2, 3])
+def test_request_retries_on_ensek_error(mocker, retries):
+    side_effect = [EnsekError('', '') for _ in range(retries - 1)]
+    expected_result = {'message': 'success'}
+    response = mock_response(
+        json=expected_result, ok=True, status_code=OK
+    )
+    side_effect.append(response)
+    mocker.patch('requests.get', side_effect=side_effect)
+    client = client_factory(retries=3, retry_wait=0.1)
+
+    result = client._request('get', 'fakepath')
+    assert result == expected_result
+
+
+def test_request_raises_after_retries_exceeded(mocker):
+    mocker.patch('requests.get', side_effect=[
+        EnsekError('', None),
+        EnsekError('', None),
+        EnsekError('', None),
+    ])
+    client = client_factory(retries=3, retry_wait=0.1)
+    with pytest.raises(EnsekError):
+        client._request('get', 'fakepath')
+
+
+def test_request_raises_when_request_exception(mocker, client):
+    mocker.patch('requests.get', side_effect=RequestException)
+    with pytest.raises(EnsekError):
+        client._request('get', 'fakepath')
 
 
 @my_vcr.use_cassette()
